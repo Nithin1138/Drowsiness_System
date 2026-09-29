@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Emergency Alerts</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .info-box p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .numbers-list {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .numbers-list h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .number-item {
+            padding: 8px;
+            background: #f8f9fa;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .btn-test {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-test:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-test:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-back {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-back:hover {
+            background: #5a6268;
+        }
+
+        .message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+
+        .message.info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-item.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .result-item.failed {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+            display: none;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Test Emergency Alerts</h1>
+        <p class="subtitle">Test the emergency alert system without running the detection code</p>
+
+        <div class="info-box">
+            <h3>ℹ️ How it works</h3>
+            <p>
+                This will send a test alert to all registered phone numbers via Telegram.
+                Make sure you have registered your phone number with the Telegram bot first.
+            </p>
+        </div>
+
+        <div class="numbers-list" id="numbersList">
+            <h3>📱 Registered Numbers</h3>
+            <div id="numbersContent">Loading...</div>
+        </div>
+
+        <div class="message" id="message"></div>
+        <div class="spinner" id="spinner"></div>
+
+        <div class="results" id="results" style="display: none;">
+            <h3>📊 Results</h3>
+            <div id="resultsContent"></div>
+        </div>
+
+        <button class="btn btn-test" id="testBtn" onclick="testAlerts()">
+            🚨 Send Test Alert
+        </button>
+
+        <button class="btn btn-back" onclick="window.location.href='/home'">
+            ← Back to Dashboard
+        </button>
+    </div>
+
+    <script>
+        // Load registered numbers on page load
+        async function loadNumbers() {
+            try {
+                const response = await fetch('/get_numbers');
+                const data = await response.json();
+                
+                const numbersContent = document.getElementById('numbersContent');
+                
+                if (data.numbers && data.numbers.length > 0) {
+                    numbersContent.innerHTML = data.numbers.map(num => 
+                        `<div class="number-item">📞 ${num}</div>`
+                    ).join('');
+                } else {
+                    numbersContent.innerHTML = '<p style="color: #999;">No numbers registered yet</p>';
+                }
+            } catch (error) {
+                console.error('Error loading numbers:', error);
+                document.getElementById('numbersContent').innerHTML = 
+                    '<p style="color: #dc3545;">Error loading numbers</p>';
+            }
+        }
+
+        async function testAlerts() {
+            const testBtn = document.getElementById('testBtn');
+            const message = document.getElementById('message');
+            const spinner = document.getElementById('spinner');
+            const results = document.getElementById('results');
+            const resultsContent = document.getElementById('resultsContent');
+
+            // Disable button and show spinner
+            testBtn.disabled = true;
+            testBtn.textContent = 'Sending...';
+            spinner.style.display = 'block';
+            message.style.display = 'none';
+            results.style.display = 'none';
+
+            try {
+                const response = await fetch('/test_emergency_alert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await response.json();
+
+                spinner.style.display = 'none';
+
+                if (data.success) {
+                    message.className = 'message success';
+                    message.textContent = `✅ ${data.message}`;
+                    message.style.display = 'block';
+
+                    // Show results
+                    if (data.results && data.results.length > 0) {
+                        results.style.display = 'block';
+                        resultsContent.innerHTML = data.results.map(result => 
+                            `<div class="result-item ${result.success ? 'success' : 'failed'}">
+                                <span>📞 ${result.number}</span>
+                                <span>${result.success ? '✅ Sent' : '❌ Failed'}</span>
+                            </div>`
+                        ).join('');
+                    }
+                } else {
+                    message.className = 'message error';
+                    message.textContent = `❌ ${data.message}`;
+                    message.style.display = 'block';
+                }
+            } catch (error) {
+                spinner.style.display = 'none';
+                message.className = 'message error';
+                message.textContent = `❌ Error: ${error.message}`;
+                message.style.display = 'block';
+            } finally {
+                testBtn.disabled = false;
+                testBtn.textContent = '🚨 Send Test Alert';
+            }
+        }
+
+        // Load numbers when page loads
+        loadNumbers();
+    </script>
+</body>
+</html>
+

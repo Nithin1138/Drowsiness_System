@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enter Mobile Number</title>
+  <style>
+    /* Background gradient */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Card container */
+    .card {
+      background-color: #121421;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      width: 320px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Title */
+    .card h2 {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* Input fields */
+    .card input[type="tel"] {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      background-color: #f0f8f5;
+      color: #333;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card input[type="text"]:focus {
+      box-shadow: 0 0 5px #ff4c4c;
+    }
+
+    /* Save button */
+    .card button.save-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #e63946;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button.save-btn:hover {
+      background-color: #d62828;
+    }
+
+    /* Footer buttons container */
+    .footer-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    /* Footer buttons */
+    .footer-buttons button {
+      background: none;
+      border: none;
+      color: #a0c4ff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-buttons button:hover {
+      color: #ff6b6b;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Enter Mobile Number</h2>
+    <form id="mobileForm" onsubmit="return false;">
+      <label for="primaryNumber" style="display:block; text-align:left; margin-bottom: 0.3rem; font-weight: 600; color: white;">
+        Primary Mobile Number <span style="color: red;">*</span>
+      </label>
+      <input type="tel" id="primaryNumber" placeholder="Enter Primary Mobile Number" required pattern="\\d{10}" title="Please enter exactly 10 digits" />
+      <label for="secondaryNumber" style="display:block; text-align:left; margin-bottom: 0.3rem; font-weight: 600; color: white;">
+        Secondary Mobile Number (optional)
+      </label>
+      <input type="tel" id="secondaryNumber" placeholder="Enter Secondary Mobile Number" pattern="\\d*" title="Please enter only numbers" />
+      <button type="submit" class="save-btn" onclick="saveNumbers()">Register</button>
+      <p style="margin-top: 1rem; color: #a0c4ff; font-size: 0.9rem;">
+        Already registered? <a href="login.html" style="color: #ff6b6b; text-decoration: underline; cursor: pointer;">Login</a>
+      </p>
+    </form>
+    
+  </div>
+
+    <script>
+    function saveNumbers() {
+      const primaryInput = document.getElementById('primaryNumber');
+      const secondaryInput = document.getElementById('secondaryNumber');
+      const primary = primaryInput.value.trim();
+      const secondary = secondaryInput.value.trim();
+
+      // Validate primary number is not empty and contains exactly 10 digits
+      const primaryValid = /^\d{10}$/.test(primary);
+      if (!primary) {
+        alert('Please enter the primary mobile number.');
+        primaryInput.focus();
+        return;
+      }
+      if (!primaryValid) {
+        alert('Primary mobile number must be exactly 10 digits.');
+        primaryInput.focus();
+        return;
+      }
+
+      // Validate secondary number if entered
+      if (secondary && !/^\d+$/.test(secondary)) {
+        alert('Secondary mobile number must contain only numbers.');
+        secondaryInput.focus();
+        return;
+      }
+
+            alert('Successful registration!\\nPrimary: ' + primary + '\\nSecondary: ' + (secondary || 'None'));
+            // Store mobile number and redirect to home page
+            localStorage.setItem('mobileNumber', primary);
+            window.location.href = 'home.html';
+    }
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Using Mobile Number</title>
+  <style>
+    /* Background gradient */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      font-family: Arial, sans-serif;
+    }
+
+    /* Card container */
+    .card {
+      background-color: #121421;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      width: 320px;
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Title */
+    .card h2 {
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    /* Input fields */
+    .card input[type="tel"] {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      background-color: #f0f8f5;
+      color: #333;
+      box-sizing: border-box;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card input[type="tel"]:focus {
+      box-shadow: 0 0 5px #ff4c4c;
+    }
+
+    /* Login button */
+    .card button.login-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #e63946;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .card button.login-btn:hover {
+      background-color: #d62828;
+    }
+
+    /* Footer buttons container */
+    .footer-buttons {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    /* Footer buttons */
+    .footer-buttons button {
+      background: none;
+      border: none;
+      color: #a0c4ff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-buttons button:hover {
+      color: #ff6b6b;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Login Using Mobile Number</h2>
+    <form id="loginForm" onsubmit="return false;">
+      <label for="loginNumber" style="display:block; text-align:left; margin-bottom: 0.3rem; font-weight: 600; color: white;">
+        Mobile Number <span style="color: red;">*</span>
+      </label>
+      <input type="tel" id="loginNumber" placeholder="Enter Mobile Number" required pattern="\\d{10}" title="Please enter exactly 10 digits" />
+      <button type="submit" class="login-btn" onclick="login()">Login</button>
+    </form>
+    
+  </div>
+
+  <script>
+    function login() {
+      const loginInput = document.getElementById('loginNumber');
+      const number = loginInput.value.trim();
+
+      const valid = /^\\d{10}$/.test(number);
+      if (!number) {
+        alert('Please enter your mobile number.');
+        loginInput.focus();
+        return;
+      }
+      if (!valid) {
+        alert('Mobile number must be exactly 10 digits.');
+        loginInput.focus();
+        return;
+      }
+
+      alert('Login successful for mobile number: ' + number);
+      // Add your login logic here
+    }
+
+    function goHome() {
+      alert('Home button clicked');
+      // Add navigation logic here
+    }
+
+    function goHistory() {
+      alert('History Logs button clicked');
+      // Add navigation logic here
+    }
+  </script>
+</body>
+</html>

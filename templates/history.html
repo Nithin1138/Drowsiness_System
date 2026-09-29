@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Driver History Logs</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .top-bar {
+      background-color: rgba(18, 20, 33, 0.9);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-button {
+      background-color: #e63946;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .nav-button:hover { background-color: #d62828; transform: translateY(-1px); }
+
+    .main-container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
+
+    .history-panel {
+      background-color: rgba(18, 20, 33, 0.8);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .history-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .logs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .logs-grid::-webkit-scrollbar { width: 8px; }
+    .logs-grid::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.3); border-radius: 4px; }
+    .logs-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+    .log-card {
+      background-color: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .log-card:hover { transform: translateY(-2px); background-color: rgba(255, 255, 255, 0.09); }
+
+    .log-top { display: flex; justify-content: space-between; align-items: center; }
+    .timestamp { font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+    .badge { padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+    .badge-drowsy { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+    .badge-alert-sent { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+    .badge-song-played { background: rgba(167, 139, 250, 0.2); color: #a78bfa; }
+
+    .event-title { font-weight: 600; color: #a0c4ff; }
+    .empty { text-align: center; color: rgba(255,255,255,0.6); padding: 2rem 0; }
+
+    .actions { display: flex; gap: 0.75rem; }
+  </style>
+</head>
+<body>
+  <nav class="top-bar">
+    <h1>History</h1>
+    <div class="nav-buttons actions">
+      <a class="nav-button" href="/home">Home</a>
+      <button class="nav-button" onclick="refreshLogs()">Refresh</button>
+      <button class="nav-button" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <div class="main-container">
+    <div class="history-panel">
+      <div class="history-header">
+        <h2>Recent Events</h2>
+        <div class="live-indicator" style="display:flex;align-items:center;gap:8px;color:#a0c4ff;">
+          <span class="live-dot" style="width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite;"></span>
+          Newest first
+        </div>
+      </div>
+      <div id="logsContainer" class="logs-grid">
+        <div class="loading" style="grid-column: 1 / -1;">
+          <div class="loading-spinner"></div>
+          <p>Loading logs...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function logout() {
+      try {
+        // Call backend to clear session
+        await fetch('/logout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        // Clear local storage
+        localStorage.removeItem('mobileNumber');
+      } catch (e) {
+        console.error('Logout error:', e);
+      }
+
+      // Redirect to login page
+      window.location.href = '/';
+    }
+    // Fetch and display logs
+    async function loadLogs() {
+      const number = (localStorage.getItem('mobileNumber') || '').trim();
+      try {
+        const url = number ? `/get_logs?number=${encodeURIComponent(number)}` : '/get_logs';
+        const response = await fetch(url);
+        const data = await response.json();
+        displayLogs(data.logs);
+      } catch (error) {
+        console.error('Error loading logs:', error);
+        document.getElementById('logsContainer').innerHTML = 
+          '<div class="loading"><p>Error loading logs. Please try again.</p></div>';
+      }
+    }
+
+    // Display logs as professional cards grid
+    function displayLogs(logs) {
+      const container = document.getElementById('logsContainer');
+      
+      if (!logs || logs.length === 0) {
+        container.innerHTML = '<div class="empty" style="grid-column:1 / -1;">No logs available</div>';
+        return;
+      }
+
+      const logsHTML = logs.map(log => {
+        const slug = log.event.toLowerCase().replace(' ', '-');
+        const badgeClass = slug === 'drowsy' ? 'badge-drowsy' : (slug === 'alert-sent' ? 'badge-alert-sent' : 'badge-song-played');
+        return `
+          <div class="log-card">
+            <div class="log-top">
+              <span class="timestamp">${log.timestamp}</span>
+              <span class="badge ${badgeClass}">${log.event}</span>
+            </div>
+            <div class="event-title">${log.event} detected</div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = logsHTML;
+    }
+
+    // Refresh logs
+    async function refreshLogs() {
+      document.getElementById('logsContainer').innerHTML = `
+        <div class="loading">
+          <div class="loading-spinner"></div>
+          <p>Refreshing logs...</p>
+        </div>
+      `;
+      await loadLogs();
+    }
+
+    // Navigation functions
+    function goHome() {
+      window.location.href = '/home';
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', loadLogs);
+  </script>
+</body>
+</html>

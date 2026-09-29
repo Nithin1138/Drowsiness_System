@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Select Saved Number</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      background-color: #121421;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      width: 360px;
+      color: #fff;
+    }
+
+    h2 { margin: 0 0 1rem 0; font-weight: 600; }
+    p { color: #a0c4ff; margin-bottom: 1rem; }
+
+    .numbers {
+      max-height: 220px;
+      overflow-y: auto;
+      margin: 0.5rem 0 1rem 0;
+      padding-right: 0.5rem;
+    }
+
+    .number-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .actions { display: flex; gap: 0.75rem; }
+
+    .btn-primary {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      background-color: #e63946;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .btn-primary:hover { background-color: #d62828; }
+
+    .btn-link {
+      background: none;
+      border: none;
+      color: #a0c4ff;
+      font-size: 0.95rem;
+      cursor: pointer;
+      padding: 0;
+      font-weight: 500;
+      text-decoration: underline;
+    }
+
+    .divider {
+      margin: 1rem 0;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+    }
+
+    .inline {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    input[type="tel"] {
+      flex: 1;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      border: none;
+      background: #f0f8f5;
+      color: #333;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Welcome back</h2>
+    <p>Select a saved mobile number to continue.</p>
+
+    <div id="numbersContainer" class="numbers">
+      <div style="text-align:center;color:rgba(255,255,255,0.7);padding:1rem;">Loading saved numbers...</div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="loginWithSelected()">Login</button>
+      <button class="btn-link" onclick="goRegister()">Register new</button>
+    </div>
+
+    <hr class="divider" />
+
+    <label style="display:block;margin-bottom:0.35rem;font-weight:600;">Or enter a number</label>
+    <div class="inline">
+      <input type="tel" id="manualNumber" placeholder="Enter 10-digit number" />
+      <button class="btn-primary" style="padding:0.55rem 0.9rem;" onclick="loginManual()">Login</button>
+    </div>
+  </div>
+
+  <script>
+    let savedNumbers = [];
+
+    async function loadNumbers() {
+      try {
+        const res = await fetch('/get_numbers');
+        const data = await res.json();
+        savedNumbers = Array.isArray(data.numbers) ? data.numbers : [];
+        renderNumbers();
+      } catch (e) {
+        document.getElementById('numbersContainer').innerHTML = '<div style="text-align:center;color:#ffb4b4;padding:1rem;">Failed to load numbers</div>';
+      }
+    }
+
+    function renderNumbers() {
+      const el = document.getElementById('numbersContainer');
+      if (!savedNumbers.length) {
+        el.innerHTML = '<div style="text-align:center;color:rgba(255,255,255,0.7);padding:1rem;">No saved numbers. Register a new one.</div>';
+        return;
+      }
+      el.innerHTML = savedNumbers.map((n, idx) => `
+        <label class="number-item">
+          <input type="radio" name="savedNumber" value="${n}" ${idx===0?'checked':''} />
+          <span>${n}</span>
+        </label>
+      `).join('');
+    }
+
+    function goRegister() {
+      window.location.href = '/';
+    }
+
+    async function setLoggedIn(number) {
+      try { localStorage.setItem('mobileNumber', number); } catch (e) {}
+      try {
+        await fetch('/add_number', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ numbers: [number] })
+        });
+      } catch (e) {
+        // Non-blocking: proceed even if saving fails
+      }
+      window.location.href = '/home';
+    }
+
+    function loginWithSelected() {
+      const selected = document.querySelector('input[name="savedNumber"]:checked');
+      if (!selected) {
+        alert('Please select a number.');
+        return;
+      }
+      setLoggedIn(selected.value);
+    }
+
+    function loginManual() {
+      const input = document.getElementById('manualNumber');
+      const value = (input.value || '').trim();
+      if (!/^\d{10}$/.test(value)) {
+        alert('Please enter exactly 10 digits.');
+        input.focus();
+        return;
+      }
+      setLoggedIn(value);
+    }
+
+    document.addEventListener('DOMContentLoaded', loadNumbers);
+  </script>
+</body>
+</html>
+
+

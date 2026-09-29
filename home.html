@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine History Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            background-color: rgba(18, 20, 33, 0.9);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .top-bar h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-button:hover {
+            background-color: #d62828;
+            transform: translateY(-1px);
+        }
+
+        .nav-button.active {
+            background-color: #ff6b6b;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* History Container */
+        .history-container {
+            background-color: rgba(18, 20, 33, 0.8);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .history-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4ade80;
+            font-size: 0.9rem;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* History Items */
+        .history-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .history-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #e63946;
+            transition: all 0.3s ease;
+        }
+
+        .history-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(4px);
+        }
+
+        .history-item.new {
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .history-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .machine-name {
+            font-weight: 600;
+            color: #a0c4ff;
+        }
+
+        .timestamp {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .history-details {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .status-online {
+            background-color: rgba(74, 222, 128, 0.2);
+            color: #4ade80;
+        }
+
+        .status-offline {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .status-maintenance {
+            background-color: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .empty-state svg {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #e63946;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <h1>Machine History Dashboard</h1>
+        <div class="nav-buttons">
+            <button class="nav-button active" onclick="showHome()">Home</button>
+            <button class="nav-button" onclick="loadAllHistory()">History</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <div class="history-container">
+            <div class="history-header">
+                <h2>Machine Activity History</h2>
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <span>LIVE</span>
+                </div>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <!-- History items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample mobile number - in real app, this would come from login
+        const mobileNumber = localStorage.getItem('mobileNumber') || '+91-9876543210';
+        
+        // Sample machine history data
+        const allHistory = [
+            {
+                machineName: "CNC Machine #001",
+                timestamp: new Date(Date.now() - 300000).toLocaleString(),
+                details: "Machine started production cycle",
+                status: "online"
+            },
+            {
+                machineName: "Assembly Line #A3",
+                timestamp: new Date(Date.now() - 600000).toLocaleString(),
+                details: "Quality check completed - 98% pass rate",
+                status: "online"
+            },
+            {
+                machineName: "Packaging Unit #P7",
+                timestamp: new Date(Date.now() - 900000).toLocaleString(),
+                details: "Scheduled maintenance completed",
+                status: "maintenance"
+            },
+            {
+                machineName: "Testing Station #T2",
+                timestamp: new Date(Date.now() - 1200000).toLocaleString(),
+                details: "Power cycle detected",
+                status: "offline"
+            },
+            {
+                machineName: "CNC Machine #001",
+                timestamp: new Date(Date.now() - 1500000).toLocaleString(),
+                details: "Production batch #12345 completed",
+                status: "online"
+            },
+            {
+                machineName: "Assembly Line #A3",
+                timestamp: new Date(Date.now() - 1800000).toLocaleString(),
+                details: "New component batch received",
+                status: "online"
+            },
+            {
+                machineName: "Packaging Unit #P7",
+                timestamp: new Date(Date.now() - 2100000).toLocaleString(),
+                details: "System restart after maintenance",
+                status: "online"
+            },
+            {
+                machineName: "Testing Station #T2",
+                timestamp: new Date(Date.now() - 2400000).toLocaleString(),
+                details: "Calibration check performed",
+                status: "online"
+            }
+        ];
+
+        // Function to create history item HTML
+        function createHistoryItem(item, isNew = false) {
+            const statusClass = `status-${item.status}`;
+            const statusText = item.status.charAt(0).toUpperCase() + item.status.slice(1);
+            
+            return `
+                <div class="history-item ${isNew ? 'new' : ''}">
+                    <div class="history-item-header">
+                        <span class="machine-name">${item.machineName}</span>
+                        <span class="timestamp">${item.timestamp}</span>
+                    </div>
+                    <div class="history-details">${item.details}</div>
+                    <span class="status-badge ${statusClass}">${statusText}</span>
+                </div>
+            `;
+        }
+
+        // Function to show only 2-3 recent items (Home view)
+        function showHome() {
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show only 2-3 most recent items
+            const recentHistory = allHistory.slice(0, 3);
+            renderHistory(recentHistory);
+        }
+
+        // Function to load all history items
+        function loadAllHistory() {
+            document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Show loading state
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = `
+                <div class="loading">
+                    <div class="loading-spinner"></div>
+                    <p>Loading all history...</p>
+                </div>
+            `;
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                renderHistory(allHistory);
+            }, 500);
+        }
+
+        // Function to render history
+        function renderHistory(historyItems) {
+            const historyList = document.getElementById('historyList');
+            
+            if (historyItems.length === 0) {
+                historyList.innerHTML = `
+                    <div class="empty-state">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2H9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                  d="M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <p>No history available</p>
+                    </div>
+                `;
+                return;
+            }
+
+            historyList.innerHTML = historyItems.map(item => createHistoryItem(item)).join('');
+        }
+
+        // Function to add new live update (only 2-3 items visible)
+        function addLiveUpdate() {
+            const machines = ["CNC Machine #001", "Assembly Line #A3", "Packaging Unit #P7", "Testing Station #T2"];
+            const details = [
+                "Production cycle completed",
+                "Quality check initiated",
+                "Maintenance scheduled",
+                "System reboot successful",
+                "Error detected and resolved",
+                "Performance optimization applied"
+            ];
+            const statuses = ["online", "offline", "maintenance"];
+
+            const newItem = {
+                machineName: machines[Math.floor(Math.random() * machines.length)],
+                timestamp: new Date().toLocaleString(),
+                details: details[Math.floor(Math.random() * details.length)],
+                status: statuses[Math.floor(Math.random() * statuses.length)]
+            };
+
+            // Add to beginning of all history
+            allHistory.unshift(newItem);
+            
+            // If showing home view (only recent items), update display
+            const activeButton = document.querySelector('.nav-button.active');
+            if (activeButton && activeButton.textContent === 'Home') {
+                const recentHistory = allHistory.slice(0, 3);
+                renderHistory(recentHistory);
+            }
+        }
+
+        // Initialize with 2-3 items on home page
+        renderHistory(allHistory.slice(0, 3));
+
+        // Simulate live updates every 0.4 seconds (only affects home view)
+        setInterval(addLiveUpdate, 400);
+
+        // Store mobile number if coming from registration
+        if (!localStorage.getItem('mobileNumber')) {
+            localStorage.setItem('mobileNumber', '+91-9876543210');
+        }
+    </script>
+
+    
+</body>
+</html>

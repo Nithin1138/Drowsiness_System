@@ -1,0 +1,766 @@
+timestamp,event,number
+2025-09-04 12:12:12,Song Played,
+2025-01-15 09:30:00,Drowsy,9999999999
+2025-01-15 10:15:00,Alert Sent,9999999999
+2025-01-15 11:00:00,Song Played,8888888888
+2025-01-15 14:30:00,Drowsy,8888888888
+2025-01-15 15:45:00,Alert Sent,9999999999
+2025-09-13 10:10:28,Drowsy,1234567890
+2025-09-13 10:11:48,Drowsy,1234567890
+2025-10-28 14:08:39,Drowsy,default_user
+2025-10-28 14:08:40,Alert Sent,default_user
+2025-10-28 14:08:50,Drowsy,default_user
+2025-10-28 14:08:51,Alert Sent,default_user
+2025-10-28 14:08:56,Drowsy,default_user
+2025-10-28 14:08:57,Drowsy,default_user
+2025-10-28 14:08:59,Drowsy,default_user
+2025-10-28 14:09:00,Alert Sent,default_user
+2025-10-28 14:09:02,Drowsy,default_user
+2025-10-28 14:14:10,Drowsy,default_user
+2025-10-28 14:14:10,Alert Sent,default_user
+2025-10-28 14:14:19,Drowsy,default_user
+2025-10-28 14:14:21,Alert Sent,default_user
+2025-10-28 14:14:24,Drowsy,default_user
+2025-10-28 14:14:24,Alert Sent,default_user
+2025-10-28 14:14:31,Drowsy,default_user
+2025-10-28 14:14:31,Alert Sent,default_user
+2025-10-28 14:14:46,Drowsy,default_user
+2025-10-28 14:14:46,Alert Sent,default_user
+2025-10-28 14:14:55,Drowsy,default_user
+2025-10-28 14:14:56,Drowsy,default_user
+2025-10-28 14:14:59,Alert Sent,default_user
+2025-10-28 14:15:00,Drowsy,default_user
+2025-10-28 14:15:01,Alert Sent,default_user
+2025-10-28 14:15:03,Drowsy,default_user
+2025-10-28 14:15:04,Alert Sent,default_user
+2025-10-28 14:15:09,Drowsy,default_user
+2025-10-28 14:15:10,Drowsy,default_user
+2025-10-28 14:15:10,Alert Sent,default_user
+2025-10-28 14:15:13,Drowsy,default_user
+2025-10-28 14:15:14,Alert Sent,default_user
+2025-10-28 14:15:19,Drowsy,default_user
+2025-10-28 14:15:20,Alert Sent,default_user
+2025-10-28 14:15:46,Drowsy,default_user
+2025-10-28 14:16:06,Drowsy,default_user
+2025-10-28 14:16:09,Drowsy,default_user
+2025-10-28 14:16:11,Alert Sent,default_user
+2025-11-03 00:48:21,Drowsy,default_user
+2025-11-03 00:48:24,Alert Sent,default_user
+2025-11-03 00:48:34,Drowsy,default_user
+2025-11-03 00:48:35,Drowsy,default_user
+2025-11-03 00:48:38,Alert Sent,default_user
+2025-11-03 00:48:48,Drowsy,default_user
+2025-11-03 00:48:48,Alert Sent,default_user
+2025-11-03 00:48:51,Drowsy,default_user
+2025-11-03 00:48:54,Drowsy,default_user
+2025-11-03 00:48:57,Alert Sent,default_user
+2025-11-03 00:51:46,Drowsy,default_user
+2025-11-03 00:51:49,Alert Sent,default_user
+2025-11-03 00:51:55,Drowsy,default_user
+2025-11-03 00:51:58,Alert Sent,default_user
+2025-11-03 00:52:17,Drowsy,default_user
+2025-11-03 00:52:25,Drowsy,default_user
+2025-11-03 00:52:28,Drowsy,default_user
+2025-11-03 00:52:29,Drowsy,default_user
+2025-11-03 00:52:32,Drowsy,default_user
+2025-11-03 00:52:33,Drowsy,default_user
+2025-11-03 00:52:42,Drowsy,default_user
+2025-11-03 00:52:46,Drowsy,default_user
+2025-11-03 00:52:48,Alert Sent,default_user
+2025-11-03 00:52:52,Alert Sent,default_user
+2025-11-03 00:52:57,Drowsy,default_user
+2025-11-03 00:53:04,Drowsy,default_user
+2025-11-03 00:53:12,Drowsy,default_user
+2025-11-03 00:53:16,Drowsy,default_user
+2025-11-03 00:59:14,Drowsy,default_user
+2025-11-03 00:59:16,Drowsy,default_user
+2025-11-03 00:59:57,Drowsy,default_user
+2025-11-03 00:59:59,Drowsy,default_user
+2025-11-03 01:00:03,Drowsy,default_user
+2025-11-03 01:00:09,Drowsy,default_user
+2025-11-03 01:00:10,Drowsy,default_user
+2025-11-03 01:00:13,Alert Sent,default_user
+2025-11-03 01:00:53,Drowsy,default_user
+2025-11-03 01:00:58,Drowsy,default_user
+2025-11-03 01:01:09,Alert Sent,default_user
+2025-11-03 01:07:51,Drowsy,
+2025-11-03 01:07:56,Drowsy,
+2025-11-03 01:08:01,Drowsy,
+2025-11-03 01:08:28,Drowsy,
+2025-11-03 01:08:35,Drowsy,
+2025-11-03 01:08:39,Drowsy,
+2025-11-03 01:08:42,Alert Sent,
+2025-11-03 01:08:47,Drowsy,
+2025-11-03 01:08:50,Alert Sent,
+2025-11-03 01:08:56,Drowsy,
+2025-11-03 01:08:58,Alert Sent,
+2025-11-03 01:09:05,Drowsy,
+2025-11-03 01:09:08,Alert Sent,
+2025-11-03 01:09:25,Drowsy,
+2025-11-03 01:09:27,Drowsy,
+2025-11-03 01:09:30,Alert Sent,
+2025-11-03 01:09:37,Drowsy,
+2025-11-03 01:10:35,Drowsy,default_user
+2025-11-03 01:10:40,Drowsy,default_user
+2025-11-03 01:10:42,Drowsy,default_user
+2025-11-03 01:10:44,Drowsy,default_user
+2025-11-03 01:10:47,Drowsy,default_user
+2025-11-03 01:10:50,Drowsy,default_user
+2025-11-03 01:10:54,Drowsy,default_user
+2025-11-03 01:10:57,Drowsy,default_user
+2025-11-03 01:11:03,Drowsy,default_user
+2025-11-03 01:11:04,Drowsy,default_user
+2025-11-03 01:11:07,Alert Sent,default_user
+2025-11-03 01:11:25,Drowsy,default_user
+2025-11-03 01:11:28,Alert Sent,default_user
+2025-11-03 01:11:34,Drowsy,default_user
+2025-11-03 01:11:36,Drowsy,default_user
+2025-11-03 01:11:39,Drowsy,default_user
+2025-11-03 01:11:42,Alert Sent,default_user
+2025-11-03 01:11:44,Drowsy,default_user
+2025-11-03 01:11:53,Drowsy,default_user
+2025-11-03 01:11:56,Alert Sent,default_user
+2025-11-03 01:12:00,Drowsy,default_user
+2025-11-03 01:12:08,Drowsy,default_user
+2025-11-03 01:13:14,Drowsy,default_user
+2025-11-03 01:13:17,Drowsy,default_user
+2025-11-03 01:13:40,Drowsy,default_user
+2025-11-03 01:13:42,Drowsy,default_user
+2025-11-03 01:13:45,Drowsy,default_user
+2025-11-03 01:13:48,Alert Sent,default_user
+2025-11-03 01:13:57,Drowsy,default_user
+2025-11-03 01:14:33,Drowsy,default_user
+2025-11-03 01:14:40,Drowsy,default_user
+2025-11-03 01:14:47,Drowsy,default_user
+2025-11-03 01:14:49,Drowsy,default_user
+2025-11-03 01:17:22,Drowsy,default_user
+2025-11-03 01:17:35,Drowsy,default_user
+2025-11-03 01:17:43,Drowsy,default_user
+2025-11-03 01:17:54,Drowsy,default_user
+2025-11-03 01:17:56,Drowsy,default_user
+2025-11-03 01:18:40,Drowsy,
+2025-11-03 01:18:49,Drowsy,
+2025-11-03 01:18:56,Drowsy,
+2025-11-03 01:18:56,Drowsy,
+2025-11-03 01:19:09,Drowsy,
+2025-11-03 01:19:11,Drowsy,
+2025-11-03 01:19:11,Alert Sent,
+2025-11-03 01:19:20,Drowsy,
+2025-11-03 01:19:25,Drowsy,
+2025-11-03 01:19:26,Alert Sent,
+2025-11-03 01:19:49,Drowsy,
+2025-11-03 01:20:01,Drowsy,
+2025-11-03 01:20:01,Alert Sent,
+2025-11-03 01:20:17,Drowsy,
+2025-11-03 01:20:19,Drowsy,
+2025-11-03 01:20:20,Alert Sent,
+2025-11-03 01:20:31,Drowsy,
+2025-11-03 01:20:34,Drowsy,
+2025-11-03 01:20:39,Alert Sent,
+2025-11-03 01:20:45,Drowsy,
+2025-11-03 01:20:46,Alert Sent,
+2025-11-03 01:20:48,Drowsy,
+2025-11-03 01:20:52,Alert Sent,
+2025-11-03 01:20:55,Drowsy,
+2025-11-03 01:20:59,Drowsy,
+2025-11-03 01:21:00,Drowsy,
+2025-11-03 01:21:02,Alert Sent,
+2025-11-03 01:21:15,Drowsy,
+2025-11-03 01:21:15,Drowsy,
+2025-11-03 01:21:21,Drowsy,
+2025-11-03 01:21:22,Alert Sent,
+2025-11-03 01:21:27,Drowsy,
+2025-11-03 01:21:28,Alert Sent,
+2025-11-03 01:21:28,Drowsy,
+2025-11-03 01:22:31,Drowsy,
+2025-11-03 01:22:45,Drowsy,
+2025-11-03 01:22:48,Drowsy,
+2025-11-03 01:22:52,Drowsy,
+2025-11-03 01:23:15,Drowsy,
+2025-11-03 01:24:36,Drowsy,
+2025-11-03 01:24:41,Drowsy,
+2025-11-03 01:25:05,Drowsy,
+2025-11-03 01:25:22,Drowsy,
+2025-11-03 01:25:25,Drowsy,
+2025-11-03 01:25:32,Drowsy,
+2025-11-03 01:25:37,Alert Sent,
+2025-11-03 01:25:38,Drowsy,
+2025-11-03 01:30:41,Drowsy,
+2025-11-03 01:30:42,Alert Sent,
+2025-11-03 01:30:54,Drowsy,
+2025-11-03 01:31:00,Drowsy,
+2025-11-03 01:31:00,Drowsy,
+2025-11-03 01:31:05,Drowsy,
+2025-11-03 01:31:06,Drowsy,
+2025-11-03 01:31:08,Drowsy,
+2025-11-03 01:31:13,Alert Sent,
+2025-11-03 01:31:14,Drowsy,
+2025-11-03 01:31:23,Drowsy,
+2025-11-03 01:31:25,Alert Sent,
+2025-11-03 01:31:27,Drowsy,
+2025-11-03 01:31:30,Drowsy,
+2025-11-03 01:31:40,Drowsy,
+2025-11-03 01:31:46,Drowsy,
+2025-11-03 01:31:50,Alert Sent,
+2025-11-03 01:31:59,Alert Sent,
+2025-11-03 01:32:05,Drowsy,
+2025-11-03 01:32:07,Alert Sent,
+2025-11-03 01:32:13,Alert Sent,
+2025-11-03 01:32:17,Drowsy,
+2025-11-03 01:32:20,Alert Sent,
+2025-11-03 01:32:29,Drowsy,
+2025-11-03 14:55:33,Drowsy,
+2025-11-03 14:57:18,Drowsy,
+2025-11-03 14:57:23,Drowsy,
+2025-11-03 14:57:24,Alert Sent,
+2025-11-03 14:57:27,Alert Sent,
+2025-11-03 14:58:05,Drowsy,
+2025-11-03 14:58:07,Alert Sent,
+2025-11-03 14:58:11,Drowsy,
+2025-11-03 14:58:14,Drowsy,
+2025-11-03 14:58:18,Drowsy,
+2025-11-03 14:58:20,Alert Sent,
+2025-11-03 14:58:23,Drowsy,
+2025-11-03 14:58:26,Alert Sent,
+2025-11-03 14:59:04,Drowsy,
+2025-11-03 15:11:43,Drowsy,
+2025-11-03 15:11:46,Drowsy,
+2025-11-03 15:11:49,Drowsy,
+2025-11-03 15:12:00,Drowsy,
+2025-11-03 15:12:05,Drowsy,
+2025-11-03 15:12:08,Alert Sent,
+2025-11-03 15:12:22,Drowsy,
+2025-11-03 15:12:43,Alert Sent,
+2025-11-03 15:13:07,Alert Sent,
+2025-11-03 15:13:18,Drowsy,
+2025-11-03 15:20:33,Drowsy,
+2025-11-03 15:20:42,Drowsy,
+2025-11-03 15:20:44,Drowsy,
+2025-11-03 15:20:47,Drowsy,
+2025-11-03 15:20:51,Alert Sent,
+2025-11-03 15:20:56,Alert Sent,
+2025-11-03 15:22:04,Drowsy,
+2025-11-03 15:22:15,Drowsy,
+2025-11-03 15:22:16,Alert Sent,
+2025-11-03 15:22:23,Drowsy,
+2025-11-03 15:22:29,Alert Sent,
+2025-11-03 15:22:38,Drowsy,
+2025-11-03 15:22:46,Drowsy,
+2025-11-03 15:22:51,Drowsy,
+2025-11-03 15:22:53,Alert Sent,
+2025-11-03 15:22:58,Alert Sent,
+2025-11-03 15:22:59,Alert Sent,
+2025-11-03 15:23:02,Drowsy,
+2025-11-03 15:24:15,Drowsy,
+2025-11-03 15:24:18,Drowsy,
+2025-11-03 15:24:23,Drowsy,
+2025-11-03 15:24:34,Drowsy,
+2025-11-03 15:24:35,Alert Sent,
+2025-11-03 15:24:52,Drowsy,
+2025-11-03 15:24:56,Alert Sent,
+2025-11-03 15:25:03,Drowsy,
+2025-11-03 15:25:04,Drowsy,
+2025-11-03 15:25:07,Drowsy,
+2025-11-03 15:25:30,Drowsy,
+2025-11-03 15:25:30,Alert Sent,
+2025-11-03 15:25:32,Drowsy,
+2025-11-03 15:25:34,Drowsy,
+2025-11-03 15:25:36,Drowsy,
+2025-11-03 15:25:40,Alert Sent,
+2025-11-03 15:25:55,Drowsy,
+2025-11-03 15:25:57,Alert Sent,
+2025-11-03 15:26:03,Drowsy,
+2025-11-03 15:26:13,Drowsy,
+2025-11-03 15:26:26,Drowsy,
+2025-11-03 15:26:28,Drowsy,
+2025-11-03 15:26:32,Drowsy,
+2025-11-03 15:26:35,Alert Sent,
+2025-11-03 15:26:44,Alert Sent,
+2025-11-03 15:27:04,Drowsy,
+2025-11-03 15:27:26,Drowsy,
+2025-11-03 15:27:26,Alert Sent,
+2025-11-03 15:27:31,Drowsy,
+2025-11-03 15:27:35,Alert Sent,
+2025-11-03 15:27:40,Drowsy,
+2025-11-03 15:27:42,Alert Sent,
+2025-11-03 15:27:53,Drowsy,
+2025-11-03 15:27:55,Alert Sent,
+2025-11-03 15:28:18,Drowsy,
+2025-11-03 15:28:22,Alert Sent,
+2025-11-03 15:28:30,Drowsy,
+2025-11-03 15:28:30,Drowsy,
+2025-11-03 15:28:33,Drowsy,
+2025-11-03 15:28:34,Drowsy,
+2025-11-03 15:28:38,Alert Sent,
+2025-11-03 15:28:41,Drowsy,
+2025-11-03 15:28:47,Drowsy,
+2025-11-03 15:28:48,Alert Sent,
+2025-11-03 15:28:52,Alert Sent,
+2025-11-03 15:29:05,Drowsy,
+2025-11-03 15:29:08,Drowsy,
+2025-11-03 15:39:59,Drowsy,
+2025-11-03 15:40:07,Drowsy,
+2025-11-03 15:40:07,Alert Sent,
+2025-11-03 15:40:17,Drowsy,
+2025-11-03 15:40:24,Drowsy,
+2025-11-03 15:40:26,Drowsy,
+2025-11-03 15:40:32,Drowsy,
+2025-11-03 15:40:33,Alert Sent,
+2025-11-03 15:41:13,Drowsy,
+2025-11-03 15:41:14,Drowsy,
+2025-11-03 15:41:20,Drowsy,
+2025-11-03 15:41:21,Alert Sent,
+2025-11-05 12:02:43,Drowsy,default_user
+2025-11-05 12:02:59,Drowsy,default_user
+2025-11-05 12:03:08,Drowsy,default_user
+2025-11-05 12:03:16,Drowsy,default_user
+2025-11-05 12:03:19,Drowsy,default_user
+2025-11-05 12:03:54,Drowsy,default_user
+2025-11-05 12:03:57,Drowsy,default_user
+2025-11-05 12:04:00,Drowsy,default_user
+2025-11-05 12:04:10,Drowsy,default_user
+2025-11-05 12:05:13,Drowsy,default_user
+2025-11-05 12:05:15,Drowsy,default_user
+2025-11-05 12:05:17,Drowsy,default_user
+2025-11-05 12:05:20,Alert Sent,default_user
+2025-11-05 12:07:08,Drowsy,default_user
+2025-11-05 12:07:53,Drowsy,default_user
+2025-11-05 12:07:56,Drowsy,default_user
+2025-11-05 12:07:59,Drowsy,default_user
+2025-11-05 12:08:02,Alert Sent,default_user
+2025-11-05 12:08:07,Drowsy,default_user
+2025-11-05 12:08:12,Drowsy,default_user
+2025-11-05 12:17:50,Drowsy,default_user
+2025-11-05 12:17:51,Drowsy,default_user
+2025-11-05 13:02:20,Drowsy,default_user
+2025-11-05 13:03:08,Drowsy,default_user
+2025-11-05 13:03:14,Drowsy,default_user
+2025-11-08 09:45:26,Drowsy,default_user
+2025-11-08 09:45:28,Drowsy,default_user
+2025-11-08 09:45:36,Drowsy,default_user
+2025-11-08 09:46:31,Drowsy,default_user
+2025-11-08 09:46:40,Alert Sent,default_user
+2025-11-08 09:55:37,Drowsy,default_user
+2025-11-08 09:56:33,Drowsy,default_user
+2025-11-08 09:56:38,Drowsy,default_user
+2025-11-08 09:56:41,Drowsy,default_user
+2025-11-08 09:56:45,Alert Sent,default_user
+2025-11-08 09:56:53,Drowsy,default_user
+2025-11-08 09:57:05,Drowsy,default_user
+2025-11-08 09:57:25,Alert Sent,default_user
+2025-11-08 09:57:33,Drowsy,default_user
+2026-08-25 15:34:13,Drowsy,default_user
+2026-08-25 15:34:17,Alert Sent,default_user
+2026-08-25 15:34:22,Alert Sent,default_user
+2026-08-25 15:34:39,Drowsy,default_user
+2026-08-25 15:34:40,Drowsy,default_user
+2026-08-25 15:34:41,Alert Sent,default_user
+2026-08-25 15:35:11,Drowsy,default_user
+2026-08-25 15:35:16,Drowsy,default_user
+2026-08-25 15:35:24,Drowsy,default_user
+2026-08-25 15:35:25,Drowsy,default_user
+2026-08-25 15:35:31,Drowsy,default_user
+2026-08-25 15:35:36,Alert Sent,default_user
+2026-08-25 15:35:40,Drowsy,default_user
+2026-08-25 15:35:41,Drowsy,default_user
+2026-08-25 15:35:46,Alert Sent,default_user
+2026-08-25 15:35:47,Drowsy,default_user
+2026-08-25 15:35:50,Drowsy,default_user
+2026-08-25 15:35:52,Alert Sent,default_user
+2026-08-25 15:35:54,Drowsy,default_user
+2026-08-25 15:35:59,Alert Sent,default_user
+2026-08-25 15:36:02,Drowsy,default_user
+2026-08-25 15:36:05,Drowsy,default_user
+2026-08-25 15:36:06,Drowsy,default_user
+2026-08-25 15:36:18,Drowsy,default_user
+2026-08-25 15:36:20,Drowsy,default_user
+2026-08-25 15:36:26,Drowsy,default_user
+2026-08-25 15:36:34,Drowsy,default_user
+2026-08-25 15:36:52,Drowsy,default_user
+2026-08-25 15:37:02,Drowsy,default_user
+2026-08-25 15:37:04,Drowsy,default_user
+2026-08-25 15:37:10,Drowsy,default_user
+2026-08-25 15:37:12,Drowsy,default_user
+2026-08-25 15:38:10,Drowsy,default_user
+2026-08-25 15:38:13,Drowsy,default_user
+2026-08-25 15:38:15,Drowsy,default_user
+2026-08-25 15:38:22,Drowsy,default_user
+2026-08-25 15:38:40,Drowsy,default_user
+2026-08-25 15:38:43,Drowsy,default_user
+2026-08-25 15:38:44,Drowsy,default_user
+2026-08-25 15:38:47,Drowsy,default_user
+2026-08-25 15:38:48,Drowsy,default_user
+2026-08-25 15:38:50,Drowsy,default_user
+2026-08-25 15:38:50,Alert Sent,default_user
+2026-08-25 15:38:56,Drowsy,default_user
+2026-08-25 15:39:01,Drowsy,default_user
+2026-08-25 15:39:04,Drowsy,default_user
+2026-08-25 15:39:05,Drowsy,default_user
+2026-08-25 15:39:23,Drowsy,default_user
+2026-08-25 15:39:26,Alert Sent,default_user
+2026-08-25 15:39:28,Drowsy,default_user
+2026-08-25 15:39:30,Alert Sent,default_user
+2026-08-25 15:39:48,Drowsy,default_user
+2026-08-25 15:39:52,Drowsy,default_user
+2026-08-25 15:39:56,Drowsy,default_user
+2026-08-25 15:40:00,Drowsy,default_user
+2026-08-25 15:40:01,Alert Sent,default_user
+2026-08-25 15:40:42,Drowsy,default_user
+2026-08-25 15:40:43,Drowsy,default_user
+2026-08-25 15:40:45,Drowsy,default_user
+2026-08-25 15:40:47,Alert Sent,default_user
+2026-08-25 15:40:50,Drowsy,default_user
+2026-08-25 15:40:52,Alert Sent,default_user
+2026-08-25 15:40:52,Alert Sent,default_user
+2026-08-25 15:40:57,Drowsy,default_user
+2026-08-25 15:40:59,Drowsy,default_user
+2026-08-25 15:41:00,Drowsy,default_user
+2026-08-25 15:41:02,Drowsy,default_user
+2026-08-25 15:41:04,Drowsy,default_user
+2026-08-25 15:41:11,Drowsy,default_user
+2026-08-25 15:41:12,Drowsy,default_user
+2026-08-25 15:41:15,Drowsy,default_user
+2026-08-25 15:41:17,Alert Sent,default_user
+2026-08-25 15:41:22,Alert Sent,default_user
+2026-08-25 15:41:27,Alert Sent,default_user
+2026-08-25 15:41:29,Drowsy,default_user
+2026-08-25 15:41:32,Drowsy,default_user
+2026-08-25 15:41:34,Drowsy,default_user
+2026-08-25 15:41:36,Drowsy,default_user
+2026-08-25 15:41:37,Drowsy,default_user
+2026-08-25 15:41:38,Drowsy,default_user
+2026-08-25 15:41:39,Drowsy,default_user
+2026-08-25 15:41:39,Alert Sent,default_user
+2026-08-25 15:41:40,Drowsy,default_user
+2026-08-25 15:41:48,Drowsy,default_user
+2026-08-25 15:41:52,Alert Sent,default_user
+2026-08-25 15:42:03,Drowsy,default_user
+2026-08-25 15:42:05,Drowsy,default_user
+2026-08-25 15:42:10,Drowsy,default_user
+2026-08-25 15:42:31,Drowsy,default_user
+2026-08-25 15:42:38,Drowsy,default_user
+2026-08-25 15:43:30,Drowsy,default_user
+2026-08-25 15:43:33,Drowsy,default_user
+2026-08-25 15:43:36,Alert Sent,default_user
+2026-08-25 15:43:55,Drowsy,default_user
+2026-08-25 15:44:02,Drowsy,default_user
+2026-08-25 15:44:05,Drowsy,default_user
+2026-08-25 15:44:08,Drowsy,default_user
+2026-08-25 15:44:13,Drowsy,default_user
+2026-08-25 15:44:16,Drowsy,default_user
+2026-08-25 15:44:18,Drowsy,default_user
+2026-08-25 15:44:20,Alert Sent,default_user
+2026-08-25 15:44:23,Drowsy,default_user
+2026-08-25 15:44:26,Drowsy,default_user
+2026-08-25 15:44:27,Alert Sent,default_user
+2026-08-25 15:44:32,Alert Sent,default_user
+2026-08-25 15:44:38,Drowsy,default_user
+2026-08-25 15:44:40,Drowsy,default_user
+2026-08-25 15:44:42,Drowsy,default_user
+2026-08-25 15:44:51,Drowsy,default_user
+2026-08-25 15:45:10,Drowsy,default_user
+2026-08-25 15:45:11,Drowsy,default_user
+2026-08-25 15:45:20,Drowsy,default_user
+2026-08-25 15:45:24,Drowsy,default_user
+2026-08-25 15:45:26,Drowsy,default_user
+2026-08-25 15:45:31,Drowsy,default_user
+2026-08-25 15:45:33,Drowsy,default_user
+2026-08-25 15:45:34,Drowsy,default_user
+2026-08-25 15:45:38,Drowsy,default_user
+2026-08-25 15:46:01,Drowsy,default_user
+2026-08-25 15:46:13,Drowsy,default_user
+2026-08-25 15:46:19,Drowsy,default_user
+2026-08-25 15:46:41,Drowsy,default_user
+2026-08-25 15:47:43,Drowsy,default_user
+2026-08-25 15:47:44,Drowsy,default_user
+2026-08-25 15:47:48,Drowsy,default_user
+2026-08-25 15:47:49,Drowsy,default_user
+2026-08-25 15:47:57,Alert Sent,default_user
+2026-08-25 15:48:03,Drowsy,default_user
+2026-08-25 15:48:11,Drowsy,default_user
+2026-08-25 15:48:13,Drowsy,default_user
+2026-08-25 15:48:15,Drowsy,default_user
+2026-08-25 15:48:16,Drowsy,default_user
+2026-08-25 15:48:18,Alert Sent,default_user
+2026-08-25 15:48:20,Drowsy,default_user
+2026-08-25 15:48:24,Drowsy,default_user
+2026-08-25 15:48:27,Drowsy,default_user
+2026-08-25 15:48:29,Drowsy,default_user
+2026-08-25 15:48:30,Drowsy,default_user
+2026-08-25 15:49:57,Drowsy,default_user
+2026-08-25 15:50:04,Drowsy,default_user
+2026-08-25 15:50:28,Drowsy,default_user
+2026-08-25 15:51:15,Drowsy,default_user
+2026-08-25 15:52:04,Drowsy,default_user
+2026-08-25 15:52:07,Drowsy,default_user
+2026-08-25 15:52:10,Drowsy,default_user
+2026-08-25 15:52:20,Drowsy,default_user
+2026-08-25 15:52:21,Drowsy,default_user
+2026-08-25 16:25:06,Drowsy,default_user
+2026-08-25 16:25:08,Drowsy,default_user
+2026-08-25 16:25:11,Drowsy,default_user
+2026-08-25 16:25:13,Alert Sent,default_user
+2026-08-25 16:25:17,Drowsy,default_user
+2026-08-25 16:25:48,Drowsy,default_user
+2026-08-25 16:25:50,Drowsy,default_user
+2026-08-25 16:25:53,Drowsy,default_user
+2026-08-25 16:25:55,Drowsy,default_user
+2026-08-25 16:25:59,Drowsy,default_user
+2026-08-25 16:26:02,Drowsy,default_user
+2026-08-25 16:26:06,Drowsy,default_user
+2026-08-25 16:26:13,Drowsy,default_user
+2026-08-25 16:26:16,Drowsy,default_user
+2026-08-25 16:26:21,Alert Sent,default_user
+2026-08-25 16:26:27,Drowsy,default_user
+2026-08-25 16:26:33,Drowsy,default_user
+2026-08-25 16:26:36,Drowsy,default_user
+2026-08-25 16:26:43,Drowsy,default_user
+2026-08-25 16:26:59,Drowsy,default_user
+2026-08-25 16:27:18,Drowsy,default_user
+2026-08-25 16:27:22,Drowsy,default_user
+2026-08-25 16:27:33,Drowsy,default_user
+2026-08-25 16:27:48,Drowsy,default_user
+2026-08-25 16:27:54,Drowsy,default_user
+2026-08-25 16:27:57,Drowsy,default_user
+2026-08-25 16:27:58,Drowsy,default_user
+2026-08-25 16:27:59,Drowsy,default_user
+2026-08-25 16:28:02,Drowsy,default_user
+2026-08-25 16:28:04,Alert Sent,default_user
+2026-08-25 16:28:08,Drowsy,default_user
+2026-08-25 16:28:11,Drowsy,default_user
+2026-08-25 16:28:16,Drowsy,default_user
+2026-08-25 16:28:17,Drowsy,default_user
+2026-08-25 16:28:23,Drowsy,default_user
+2026-08-25 16:28:28,Drowsy,default_user
+2026-08-25 16:28:31,Alert Sent,default_user
+2026-08-25 16:28:34,Drowsy,default_user
+2026-08-25 16:28:36,Alert Sent,default_user
+2026-08-25 16:28:59,Drowsy,default_user
+2026-08-25 16:29:00,Alert Sent,default_user
+2026-08-25 16:29:02,Drowsy,default_user
+2026-08-25 16:29:03,Drowsy,default_user
+2026-08-25 16:29:04,Alert Sent,default_user
+2026-08-25 16:29:15,Drowsy,default_user
+2026-08-25 16:29:20,Drowsy,default_user
+2026-08-25 16:29:59,Drowsy,default_user
+2026-08-25 16:30:10,Drowsy,default_user
+2026-08-25 16:32:16,Drowsy,default_user
+2026-08-25 16:32:19,Alert Sent,default_user
+2026-08-25 16:33:07,Drowsy,default_user
+2026-08-25 16:33:10,Drowsy,default_user
+2026-08-25 16:33:22,Drowsy,default_user
+2026-08-25 16:33:27,Drowsy,default_user
+2026-08-25 16:33:44,Drowsy,default_user
+2026-08-25 16:33:45,Drowsy,default_user
+2026-08-25 16:33:48,Alert Sent,default_user
+2026-08-25 16:33:51,Drowsy,default_user
+2026-08-25 16:33:53,Alert Sent,default_user
+2026-08-25 16:33:58,Drowsy,default_user
+2026-08-25 16:33:59,Drowsy,default_user
+2026-08-25 16:34:04,Drowsy,default_user
+2026-08-25 16:34:07,Drowsy,default_user
+2026-08-25 16:34:07,Drowsy,default_user
+2026-08-25 16:34:35,Drowsy,default_user
+2026-08-25 16:34:37,Drowsy,default_user
+2026-08-25 16:34:41,Drowsy,default_user
+2026-08-25 16:34:54,Drowsy,default_user
+2026-08-25 16:34:57,Drowsy,default_user
+2026-08-25 16:35:01,Drowsy,default_user
+2026-08-25 16:35:03,Alert Sent,default_user
+2026-08-25 16:35:04,Drowsy,default_user
+2026-08-25 16:35:06,Drowsy,default_user
+2026-08-25 16:35:07,Alert Sent,default_user
+2026-08-25 16:35:12,Drowsy,default_user
+2026-08-25 16:35:16,Drowsy,default_user
+2026-08-25 16:35:29,Drowsy,default_user
+2026-08-25 16:35:32,Drowsy,default_user
+2026-08-25 16:35:33,Drowsy,default_user
+2026-08-25 16:35:49,Drowsy,default_user
+2026-08-25 16:35:53,Drowsy,default_user
+2026-08-25 16:36:05,Drowsy,default_user
+2026-08-25 16:36:08,Drowsy,default_user
+2026-08-25 16:36:25,Drowsy,default_user
+2026-08-25 16:36:30,Drowsy,default_user
+2026-08-25 16:37:00,Drowsy,default_user
+2026-08-25 16:37:26,Drowsy,default_user
+2026-08-25 16:37:34,Drowsy,default_user
+2026-08-25 16:37:44,Drowsy,default_user
+2026-08-25 16:37:47,Drowsy,default_user
+2026-08-25 16:38:08,Drowsy,default_user
+2026-08-25 16:38:17,Drowsy,default_user
+2026-08-25 16:38:18,Drowsy,default_user
+2026-08-25 16:38:19,Drowsy,default_user
+2026-08-25 16:38:20,Drowsy,default_user
+2026-08-25 16:38:24,Drowsy,default_user
+2026-08-25 16:38:24,Drowsy,default_user
+2026-08-25 16:38:25,Drowsy,default_user
+2026-08-25 16:38:30,Drowsy,default_user
+2026-08-25 16:38:36,Drowsy,default_user
+2026-08-25 16:38:37,Drowsy,default_user
+2026-08-25 16:38:45,Drowsy,default_user
+2026-08-25 16:39:39,Drowsy,default_user
+2026-08-25 16:39:47,Drowsy,default_user
+2026-08-25 16:44:54,Drowsy,default_user
+2026-08-25 16:44:55,Drowsy,default_user
+2026-08-25 16:44:58,Drowsy,default_user
+2026-08-25 16:45:05,Drowsy,default_user
+2026-08-25 16:45:12,Drowsy,default_user
+2026-08-25 16:45:14,Drowsy,default_user
+2026-08-25 16:45:16,Drowsy,default_user
+2026-08-25 16:45:19,Drowsy,default_user
+2026-08-25 16:45:22,Drowsy,default_user
+2026-08-25 16:45:25,Drowsy,default_user
+2026-08-25 16:45:28,Drowsy,default_user
+2026-08-25 16:45:31,Drowsy,default_user
+2026-08-25 16:45:33,Alert Sent,default_user
+2026-08-25 16:45:35,Alert Sent,default_user
+2026-08-25 16:45:45,Drowsy,default_user
+2026-08-25 16:45:55,Drowsy,default_user
+2026-08-25 16:46:00,Drowsy,default_user
+2026-08-25 16:46:20,Drowsy,default_user
+2026-08-25 16:46:27,Drowsy,default_user
+2026-08-25 16:46:31,Drowsy,default_user
+2026-08-25 16:46:35,Drowsy,default_user
+2026-08-25 16:46:37,Drowsy,default_user
+2026-08-25 16:46:38,Drowsy,default_user
+2026-08-25 16:46:43,Alert Sent,default_user
+2026-08-25 16:46:46,Drowsy,default_user
+2026-08-25 16:46:50,Drowsy,default_user
+2026-08-25 16:46:51,Drowsy,default_user
+2026-08-25 16:46:57,Drowsy,default_user
+2026-08-25 16:47:00,Drowsy,default_user
+2026-08-25 16:47:03,Drowsy,default_user
+2026-08-25 16:47:06,Drowsy,default_user
+2026-08-25 16:47:46,Drowsy,default_user
+2026-08-25 16:47:48,Drowsy,default_user
+2026-08-25 16:47:55,Drowsy,default_user
+2026-08-25 16:47:56,Drowsy,default_user
+2026-08-25 16:48:01,Alert Sent,default_user
+2026-08-25 16:48:06,Alert Sent,default_user
+2026-08-25 16:48:09,Drowsy,default_user
+2026-08-27 15:15:13,Drowsy,default_user
+2026-08-27 15:15:15,Alert Sent,default_user
+2026-08-27 15:15:21,Drowsy,default_user
+2026-08-27 15:15:22,Drowsy,default_user
+2026-08-27 15:15:23,Drowsy,default_user
+2026-08-27 15:15:44,Drowsy,default_user
+2026-08-27 15:15:48,Alert Sent,default_user
+2026-08-27 15:15:53,Alert Sent,default_user
+2026-08-27 15:16:04,Drowsy,default_user
+2026-08-27 15:16:14,Drowsy,default_user
+2026-08-27 15:16:17,Drowsy,default_user
+2026-08-27 15:16:25,Drowsy,default_user
+2026-08-27 15:16:42,Drowsy,default_user
+2026-08-27 15:19:24,Drowsy,default_user
+2026-08-27 15:19:34,Drowsy,default_user
+2026-08-27 15:19:36,Drowsy,default_user
+2026-08-27 15:19:38,Alert Sent,default_user
+2026-08-27 15:19:40,Drowsy,default_user
+2026-08-27 15:19:42,Alert Sent,default_user
+2026-08-27 15:33:30,Drowsy,default_user
+2026-08-27 15:33:33,Drowsy,default_user
+2026-08-27 15:33:37,Drowsy,default_user
+2026-08-27 15:33:39,Drowsy,default_user
+2026-08-27 15:33:41,Drowsy,default_user
+2026-08-27 15:33:43,Drowsy,default_user
+2026-08-27 15:33:49,Drowsy,default_user
+2026-08-27 15:33:52,Alert Sent,default_user
+2026-08-27 15:33:55,Drowsy,default_user
+2026-08-27 15:33:56,Drowsy,default_user
+2026-08-27 15:34:00,Drowsy,default_user
+2026-08-27 15:34:02,Alert Sent,default_user
+2026-08-27 15:34:21,Drowsy,default_user
+2026-08-27 15:34:22,Drowsy,default_user
+2026-08-27 15:36:39,Drowsy,default_user
+2026-08-27 15:37:13,Drowsy,default_user
+2026-08-27 15:37:22,Drowsy,default_user
+2026-08-27 15:37:47,Drowsy,default_user
+2026-08-27 15:37:52,Drowsy,default_user
+2026-08-27 15:38:21,Drowsy,default_user
+2026-08-27 15:38:22,Drowsy,default_user
+2026-08-27 15:39:17,Drowsy,default_user
+2026-08-27 15:39:27,Drowsy,default_user
+2026-08-27 15:39:36,Drowsy,default_user
+2026-08-27 15:39:41,Drowsy,default_user
+2026-08-27 15:39:43,Drowsy,default_user
+2026-08-27 15:39:44,Alert Sent,default_user
+2026-08-27 15:39:46,Drowsy,default_user
+2026-08-27 15:39:47,Alert Sent,default_user
+2026-08-27 15:40:21,Drowsy,default_user
+2026-08-27 15:40:41,Drowsy,default_user
+2026-08-27 15:40:43,Drowsy,default_user
+2026-08-27 15:40:44,Drowsy,default_user
+2026-08-27 15:40:48,Drowsy,default_user
+2026-08-27 15:40:53,Alert Sent,default_user
+2026-08-27 15:40:58,Alert Sent,default_user
+2026-08-27 15:41:14,Drowsy,default_user
+2026-08-27 15:41:15,Drowsy,default_user
+2026-08-27 15:43:28,Drowsy,default_user
+2026-08-27 16:03:21,Drowsy,default_user
+2026-08-27 16:03:32,Drowsy,default_user
+2026-08-27 16:03:54,Drowsy,default_user
+2026-08-27 16:03:59,Drowsy,default_user
+2026-08-27 16:04:03,Alert Sent,default_user
+2026-08-27 16:04:14,Drowsy,default_user
+2026-08-27 16:04:21,Drowsy,default_user
+2026-08-27 16:04:27,Drowsy,default_user
+2026-08-27 16:04:27,Alert Sent,default_user
+2026-08-27 16:04:58,Drowsy,default_user
+2026-08-27 16:05:04,Drowsy,default_user
+2026-08-27 16:05:06,Alert Sent,default_user
+2026-08-27 16:05:16,Drowsy,default_user
+2026-08-27 16:05:23,Drowsy,default_user
+2026-08-27 16:05:24,Drowsy,default_user
+2026-08-27 16:05:25,Alert Sent,default_user
+2026-08-27 16:05:40,Drowsy,default_user
+2026-08-27 16:34:30,Drowsy,default_user
+2026-08-27 16:35:30,Drowsy,default_user
+2026-08-27 16:35:42,Drowsy,default_user
+2026-08-27 16:35:51,Drowsy,default_user
+2026-08-27 16:35:53,Drowsy,default_user
+2026-08-27 16:35:55,Drowsy,default_user
+2026-08-27 16:35:56,Drowsy,default_user
+2026-08-27 16:35:57,Drowsy,default_user
+2026-08-27 16:36:22,Drowsy,default_user
+2026-08-27 16:36:35,Drowsy,default_user
+2026-08-27 16:36:41,Drowsy,default_user
+2026-08-27 16:36:50,Alert Sent,default_user
+2026-08-27 16:36:50,Drowsy,default_user
+2026-08-27 16:36:56,Drowsy,default_user
+2026-08-27 16:37:11,Drowsy,default_user
+2026-08-27 16:37:53,Drowsy,default_user
+2026-08-27 16:38:00,Drowsy,default_user
+2026-08-27 16:38:05,Drowsy,default_user
+2026-08-27 16:38:11,Drowsy,default_user
+2026-08-27 16:38:34,Drowsy,default_user
+2026-08-27 16:38:34,Drowsy,default_user
+2026-08-27 16:38:44,Drowsy,default_user
+2026-08-27 16:38:48,Drowsy,default_user
+2026-08-27 16:39:05,Drowsy,default_user
+2026-08-27 16:39:45,Drowsy,default_user
+2026-08-27 16:39:47,Drowsy,default_user
+2026-08-27 16:39:54,Drowsy,default_user
+2026-08-27 16:40:14,Drowsy,default_user
+2026-08-27 16:40:17,Alert Sent,default_user
+2026-08-27 16:40:22,Alert Sent,default_user
+2026-08-27 16:40:29,Drowsy,default_user
+2026-08-27 16:40:32,Drowsy,default_user
+2026-08-27 16:40:35,Alert Sent,default_user
+2026-08-27 16:41:06,Drowsy,default_user
+2026-08-27 16:41:16,Drowsy,default_user
+2026-08-27 16:41:20,Alert Sent,default_user
+2026-08-27 16:41:24,Drowsy,default_user
+2026-08-27 16:41:26,Drowsy,default_user
+2026-08-27 16:41:28,Drowsy,default_user
+2026-08-27 16:41:29,Drowsy,default_user
+2026-08-27 16:41:31,Alert Sent,default_user
+2026-08-27 16:41:36,Alert Sent,default_user
+2026-08-27 16:41:38,Drowsy,default_user
+2026-08-27 16:41:43,Drowsy,default_user
+2026-08-27 16:41:47,Alert Sent,default_user
+2026-08-27 16:42:02,Drowsy,default_user
+2026-08-27 16:42:04,Drowsy,default_user
+2026-08-27 16:44:35,Drowsy,default_user
+2026-08-27 16:44:43,Drowsy,default_user
+2026-08-27 16:44:47,Drowsy,default_user
+2026-08-27 16:45:01,Alert Sent,default_user

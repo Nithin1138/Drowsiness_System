@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Monitoring System - Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
+            min-height: 100vh;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: rgba(18, 20, 33, 0.9);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4a9eff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        button {
+            background: #4a9eff;
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #357abd;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .error {
+            color: #ff4a4a;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .success {
+            color: #4aff4a;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        #otpSection {
+            display: none;
+        }
+
+        .message {
+            text-align: center;
+            margin: 1rem 0;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .message.error {
+            background: rgba(255, 74, 74, 0.1);
+        }
+
+        .message.success {
+            background: rgba(74, 255, 74, 0.1);
+        }
+
+        .timer {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .resend {
+            background: none;
+            border: none;
+            color: #4a9eff;
+            font-size: 0.9rem;
+            padding: 0;
+            margin-top: 0.5rem;
+            cursor: pointer;
+        }
+
+        .resend:disabled {
+            color: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Login / Sign Up</h2>
+        <div id="messageBox" class="message" style="display: none;"></div>
+        
+        <form id="loginForm" onsubmit="return false;">
+            <div class="input-group">
+                <label for="phone">Mobile Number</label>
+                <input type="tel" id="phone" placeholder="Enter 10-digit mobile number" 
+                       required pattern="\d{10}" maxlength="10"
+                       title="Please enter exactly 10 digits">
+                <button type="button" onclick="sendOTP()" id="sendOtpBtn">Send OTP</button>
+            </div>
+
+            <div id="otpSection" class="input-group">
+                <label for="otp">Enter OTP</label>
+                <input type="text" id="otp" placeholder="Enter 6-digit OTP" 
+                       pattern="\d{6}" maxlength="6" required>
+                <div class="timer" id="timer"></div>
+                <button type="button" onclick="verifyOTP()" id="verifyBtn">Verify OTP</button>
+                <button type="button" class="resend" onclick="sendOTP()" id="resendBtn" disabled>Resend OTP</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let timerInterval;
+        const messageBox = document.getElementById('messageBox');
+        const otpSection = document.getElementById('otpSection');
+        const timerElement = document.getElementById('timer');
+        const resendBtn = document.getElementById('resendBtn');
+        const phoneInput = document.getElementById('phone');
+        const otpInput = document.getElementById('otp');
+
+        function showMessage(message, type = 'error') {
+            messageBox.textContent = message;
+            messageBox.className = `message ${type}`;
+            messageBox.style.display = 'block';
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 5000);
+        }
+
+        function startTimer(duration) {
+            let timer = duration;
+            clearInterval(timerInterval);
+            
+            resendBtn.disabled = true;
+            
+            timerInterval = setInterval(() => {
+                const minutes = Math.floor(timer / 60);
+                const seconds = timer % 60;
+                
+                timerElement.textContent = `Resend OTP in ${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (--timer < 0) {
+                    clearInterval(timerInterval);
+                    timerElement.textContent = '';
+                    resendBtn.disabled = false;
+                }
+            }, 1000);
+        }
+
+        async function sendOTP() {
+            const phone = phoneInput.value;
+            
+            if (!phone || phone.length !== 10 || !/^\d{10}$/.test(phone)) {
+                showMessage('Please enter a valid 10-digit mobile number');
+                return;
+            }
+
+            try {
+                const response = await fetch('/send_otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    showMessage('OTP sent successfully!', 'success');
+                    otpSection.style.display = 'block';
+                    startTimer(300); // 5 minutes
+                    otpInput.value = ''; // Clear previous OTP
+                    otpInput.focus();
+                } else {
+                    showMessage(result.message);
+                }
+            } catch (error) {
+                showMessage('Failed to send OTP. Please try again.');
+            }
+        }
+
+        async function verifyOTP() {
+            const phone = phoneInput.value;
+            const otp = otpInput.value;
+
+            if (!otp || otp.length !== 6 || !/^\d{6}$/.test(otp)) {
+                showMessage('Please enter a valid 6-digit OTP');
+                return;
+            }
+
+            try {
+                const response = await fetch('/verify_otp', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ phone, otp })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    showMessage('Login successful!', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/home';
+                    }, 1000);
+                } else {
+                    showMessage(result.message);
+                }
+            } catch (error) {
+                showMessage('Failed to verify OTP. Please try again.');
+            }
+        }
+
+        // Input validation
+        phoneInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        otpInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 6);
+        });
+
+        // Check authentication status on page load
+        async function checkAuth() {
+            try {
+                const response = await fetch('/check_auth');
+                const result = await response.json();
+                
+                if (result.authenticated) {
+                    window.location.href = '/home';
+                }
+            } catch (error) {
+                console.error('Auth check failed:', error);
+            }
+        }
+
+        checkAuth();
+    </script>
+</body>
+</html>
